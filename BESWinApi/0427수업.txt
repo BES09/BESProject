@@ -1,0 +1,47 @@
+기업
+얼마나 많은컨텐츠를 만들어 낼 수 있는지 능력을 중요시한다.
+
+Actor
+나는 몇 종류의 몬스터를 만들것인가
+몇 종류의 아이템
+몇 종류의 맵을 만들것인가
+
+Baba is you 스테이즈 1개마다 Level 1개씩 필요
+PlayerLevel
+TitelLevel
+EndingLevel
+
+UP캐스팅을 이용한 컨텐츠 관리
+
+template<typename LevelType>
+static void CreateLevel(const std::string& _Title)
+{
+	
+	GameEnigenLevel* NewLevel = LevelType(); 
+    자료형만 바뀌기 때문에 탬플릿을 이용한다.
+	GameEngineApp에 형성된다.
+}
+
+잘못됬을때를 대비해야 한다.
+if 문으로 터트린다.
+
+template
+1. 해더에서만 구현해야한다.
+만들어지는 시점
+
+std::string Text
+Text.c_str
+
+항상 릭체크 해야합니다!!
+void GameEngineDebug::LeckCheck() 
+{
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF); <- 외워야 합니다.
+}
+
+Base
+GameEngineString 문자열
+
+window는 순수하게 윈도우만 관련된기능만 관리되어야 한다.
+
+몬스터 1개당 클래스 1개씩 필요하다.
+내가 만들 게임에 몬스터 스테이지 플레이어 오브젝트등 종류를 파악해야한다.

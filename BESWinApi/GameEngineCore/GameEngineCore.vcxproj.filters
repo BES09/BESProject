@@ -2,8 +2,17 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="GameEngineCore.h" />
+    <ClInclude Include="GameEngineActor.h" />
+    <ClInclude Include="GameEnigenObject.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameEngineCore.cpp" />
+    <ClCompile Include="GameEngineActor.cpp" />
+    <ClCompile Include="GameEnigenObject.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Object">
+      <UniqueIdentifier>{c1e46d03-bb67-4982-91c1-7fd6240f05b9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
