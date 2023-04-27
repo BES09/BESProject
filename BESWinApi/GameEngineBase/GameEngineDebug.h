@@ -25,4 +25,3 @@ private:
 };
 
 #define MsgBoxAssert(Text) MessageBoxA(nullptr, Text, "Error", MB_OK); assert(false);
-
