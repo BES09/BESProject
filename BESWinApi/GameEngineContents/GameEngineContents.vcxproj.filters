@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="Player.h" />
     <ClInclude Include="PlayLevel0.h">
       <Filter>Level0</Filter>
     </ClInclude>
@@ -11,9 +10,9 @@
     <ClInclude Include="TitleLevel.h">
       <Filter>Level0</Filter>
     </ClInclude>
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayLevel0.cpp">
       <Filter>Level0</Filter>
     </ClCompile>
@@ -23,6 +22,7 @@
     <ClCompile Include="TitleLevel.cpp">
       <Filter>Level0</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level0">
