@@ -1,0 +1,54 @@
+스테이지 최대한 할 수있는만큼 일단 목표 10개 도달하면 10개추가
+
+Level 0
+
+Player 1명
+
+Object
+BABA 1개
+Is  4개
+YOU 1개
+WALL 1개
+STOP 1개
+WIN 1개
+FLAG 1개
+깃발 1개
+ROCK 1개
+PUSH 1개
+
+map
+벽돌
+크기 모름
+ 
+
+Level 1
+
+Player 1명
+Plater => BABA
+Object
+BABA	1개
+Is		3개
+YOU		1개
+WALL	1개
+STOP	1개
+WIN		1개
+FLAG	1개
+깃발		1개
+
+map
+벽돌
+크기 모름
+
+Level 2
+
+Player 1명
+Player => 벽돌
+
+WALL	1개
+IS		3개
+WIN		1개
+BABA	1개
+FLAG	1개
+STOP	1개
+
+

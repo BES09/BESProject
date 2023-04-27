@@ -1,1 +1,10 @@
-#include "GameEnigenObject.h"
+#include "GameEngineObject.h"
+
+GameEngineObject::GameEngineObject()
+{
+}
+
+GameEngineObject::~GameEngineObject()
+{
+}
+

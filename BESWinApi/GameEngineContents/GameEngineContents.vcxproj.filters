@@ -2,8 +2,31 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayLevel0.h">
+      <Filter>Level0</Filter>
+    </ClInclude>
+    <ClInclude Include="EndingLevel0.h">
+      <Filter>Level0</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleLevel.h">
+      <Filter>Level0</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayLevel0.cpp">
+      <Filter>Level0</Filter>
+    </ClCompile>
+    <ClCompile Include="EndingLevel0.cpp">
+      <Filter>Level0</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleLevel.cpp">
+      <Filter>Level0</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Level0">
+      <UniqueIdentifier>{e7a26ce0-8319-434d-92c4-6ee5400cd232}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

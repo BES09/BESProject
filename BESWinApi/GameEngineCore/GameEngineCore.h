@@ -1,6 +1,12 @@
 #pragma once
+#include <GameEnigineBase/GameEngineDebug.h>
+#include <GameEnigineBase/GameEngineString.h>
+#include <Windows.h>
+#include <string>
+#include <map>
 
 // 설명 :
+class GameEngineLevel;
 class GameEngineCore
 {
 public:
@@ -14,23 +20,43 @@ public:
 	GameEngineCore& operator=(const GameEngineCore& _Other) = delete;
 	GameEngineCore& operator=(GameEngineCore&& _Other) noexcept = delete;
 
-	static void EnsgineStart();
+	static void EngineStart(const std::string& _Title, HINSTANCE _Inst);
+
+	template<typename LevelType>
+	static void CreateLevel(const std::string& _Name)
+	{
+		std::string Upper = GameEngineString::ToUpperReturn(_Name);
+
+		// 이미 내부에 TitleLevel이 존재한다.
+		if (AllLevel.end() != AllLevel.find(Upper))
+		{
+			MsgBoxAssert(Upper + "의 이름을 가진 GameEngineLevel은 이미 존재합니다.");
+			return;
+		}
+
+		GameEngineLevel* NewLevel = new LevelType();
+
+		AllLevel.insert(std::make_pair(Upper, NewLevel));
+
+		//std::pair<std::map<std::string, class GameEngineLevel*>::iterator, bool> Pair 
+		//	= AllLevel.insert(std::make_pair(_Title, nullptr));
+
+		//if (false == Pair.second)
+		//{
+		//	MsgBoxAssert("이미 존재하는 이름의 레벨을 또 만들려고 했습니다" + _Title);
+		//	return;
+		//}
+	}
+
 
 protected:
 
 private:
+	static std::string WindowTitle;
 
+	static void CoreStart(HINSTANCE _Inst);
+	static void CoreUpdate();
+	static void CoreEnd();
+
+	static std::map<std::string, GameEngineLevel*> AllLevel;
 };
-
-
-#define EngineStart \
-int APIENTRY wWinMain(_In_ HINSTANCE hInstance, \
-	_In_opt_ HINSTANCE hPrevInstance, \
-	_In_ LPWSTR    lpCmdLine, \
-	_In_ int       nCmdShow) \
-{ \
-	// CallBa ck 방식이라고 합니다.
-	GameEngineWindow::MessageLoop(hInstance, nullptr, nullptr, nullptr); \
-	return 0; \
-}
-
