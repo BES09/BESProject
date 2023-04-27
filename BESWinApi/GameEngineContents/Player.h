@@ -9,7 +9,7 @@ public:
 	Player(const Player& _Other) = delete;
 	Player(Player& _Other) noexcept = delete;
 	Player& operator=(const Player& _Other) = delete;
-	Player& operator=(const Player& _Other) noexcept = delete;
+	Player& operator=(Player& _Other) noexcept = delete;
 
 protected:
 

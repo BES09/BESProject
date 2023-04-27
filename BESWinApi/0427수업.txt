@@ -7,7 +7,7 @@ Actor
 몇 종류의 맵을 만들것인가
 
 Baba is you 스테이즈 1개마다 Level 1개씩 필요
-PlayerLevel
+PlayLevel
 TitelLevel
 EndingLevel
 

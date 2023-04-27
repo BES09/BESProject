@@ -156,7 +156,11 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="GameEnigenObject.h" />
+    <ClInclude Include="GameEngineObject.h" />
+    <ClInclude Include="GameEngineLevel.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameEngineActor.cpp" />
@@ -164,11 +168,15 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="GameEnigenObject.cpp" />
+    <ClCompile Include="GameEngineObject.cpp" />
+    <ClCompile Include="GameEngineLevel.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameEngineBase\GameEngineBase.vcxproj">
-      <Project>{43e95582-82fc-46c5-a7ca-7d887cd0432b}</Project>
+      <Project>{5383c252-b09c-4e86-b5ef-2d89b34a77a8}</Project>
     </ProjectReference>
     <ProjectReference Include="..\GameEnginePlatform\GameEnginePlatform.vcxproj">
       <Project>{a4198b71-d72c-4c1a-9fa2-6a2a1290c0e7}</Project>

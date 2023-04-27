@@ -1,5 +1,7 @@
 #pragma once
-class PlayLevel0
+#include <GameEngineCore/GameEngineLevel.h>
+
+class PlayLevel0 : public GameEngineLevel
 {
 public:
 	PlayLevel0();
@@ -7,9 +9,9 @@ public:
 
 	//
 	PlayLevel0(const PlayLevel0& _Other) = delete;
-	PlayLevel0(PlayLevel& _Other) noexcept = delete;
+	PlayLevel0(PlayLevel0& _Other) noexcept = delete;
 	PlayLevel0& operator=(const PlayLevel0& _Other) = delete;
-	PlayLevel0& operator=(const PlayLevel0& _Other) noexcept = delete;
+	PlayLevel0& operator=(PlayLevel0& _Other) noexcept = delete;
 
 protected:
 

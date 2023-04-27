@@ -6,8 +6,8 @@
     <ClInclude Include="GameEngineString.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GameEngineString.cpp" />
-    <ClCompile Include="GameEngineRandom.cpp" />
     <ClCompile Include="GameEngineDebug.cpp" />
+    <ClCompile Include="GameEngineRandom.cpp" />
+    <ClCompile Include="GameEngineString.cpp" />
   </ItemGroup>
 </Project>

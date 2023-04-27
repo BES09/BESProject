@@ -4,10 +4,10 @@
     <ClInclude Include="PlayLevel0.h">
       <Filter>Level0</Filter>
     </ClInclude>
-    <ClInclude Include="EndingLevel0.h">
+    <ClInclude Include="EngineLevel0.h">
       <Filter>Level0</Filter>
     </ClInclude>
-    <ClInclude Include="TitleLevel.h">
+    <ClInclude Include="TitleLevel0.h">
       <Filter>Level0</Filter>
     </ClInclude>
     <ClInclude Include="Player.h" />
@@ -16,10 +16,10 @@
     <ClCompile Include="PlayLevel0.cpp">
       <Filter>Level0</Filter>
     </ClCompile>
-    <ClCompile Include="EndingLevel0.cpp">
+    <ClCompile Include="EngineLevel0.cpp">
       <Filter>Level0</Filter>
     </ClCompile>
-    <ClCompile Include="TitleLevel.cpp">
+    <ClCompile Include="TitleLevel0.cpp">
       <Filter>Level0</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp" />

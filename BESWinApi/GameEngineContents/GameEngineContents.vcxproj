@@ -151,7 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="EndingLevel0.h">
+    <ClInclude Include="EngineLevel0.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -163,13 +163,13 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="TitleLevel.h">
+    <ClInclude Include="TitleLevel0.h">
       <SubType>
       </SubType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EndingLevel0.cpp">
+    <ClCompile Include="EngineLevel0.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -181,23 +181,20 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="TitleLevel.cpp">
+    <ClCompile Include="TitleLevel0.cpp">
       <SubType>
       </SubType>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameEngineBase\GameEngineBase.vcxproj">
-      <Project>{43e95582-82fc-46c5-a7ca-7d887cd0432b}</Project>
+      <Project>{5383c252-b09c-4e86-b5ef-2d89b34a77a8}</Project>
     </ProjectReference>
     <ProjectReference Include="..\GameEngineCore\GameEngineCore.vcxproj">
       <Project>{25420802-ca45-42a3-9d95-42f2a0bd9d5b}</Project>
     </ProjectReference>
     <ProjectReference Include="..\GameEnginePlatform\GameEnginePlatform.vcxproj">
       <Project>{a4198b71-d72c-4c1a-9fa2-6a2a1290c0e7}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\GameEnigineBase\GameEnigineBase.vcxproj">
-      <Project>{551023bc-4692-4c8d-87ee-d4fc99de4884}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
