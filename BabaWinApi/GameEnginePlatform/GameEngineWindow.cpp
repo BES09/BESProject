@@ -5,11 +5,11 @@
 HINSTANCE GameEngineWindow::Instance = nullptr;
 GameEngineWindow GameEngineWindow::MainWindow;
 
-GameEngineWindow::GameEngineWindow() 
+GameEngineWindow::GameEngineWindow()
 {
 }
 
-GameEngineWindow::~GameEngineWindow() 
+GameEngineWindow::~GameEngineWindow()
 {
 }
 
@@ -24,7 +24,7 @@ void GameEngineWindow::Open(const std::string& _Title, HINSTANCE _hInstance)
         return;
     }
 
-	MyRegisterClass();
+    MyRegisterClass();
     InitInstance();
 }
 
@@ -41,11 +41,6 @@ void GameEngineWindow::InitInstance()
         MsgBoxAssert("윈도우 생성에 실패했습니다.");
         return;
     }
-
-
-    Hdc = ::GetDC(hWnd);
-
-    // CreateDC()
 
     ShowWindow(hWnd, SW_SHOW);
     UpdateWindow(hWnd);
@@ -72,7 +67,7 @@ LRESULT CALLBACK GameEngineWindow::WndProc(HWND hWnd, UINT message, WPARAM wPara
     return 0;
 }
 
-void GameEngineWindow::MyRegisterClass() 
+void GameEngineWindow::MyRegisterClass()
 {
     static bool Check = false;
 
@@ -112,7 +107,7 @@ void GameEngineWindow::MessageLoop(HINSTANCE _Inst, void(*_Start)(HINSTANCE), vo
     {
         _Start(_Inst);
     }
-    
+
     MSG msg;
     while (GetMessage(&msg, nullptr, 0, 0))
     {

@@ -1,34 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="PlayLevel0.h">
+    <Filter Include="Level0">
+      <UniqueIdentifier>{88d8c85d-f6b6-4ff5-8cda-6b13d6046713}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EndingLevel0.h">
       <Filter>Level0</Filter>
     </ClInclude>
-    <ClInclude Include="EndingLevel0.h">
+    <ClInclude Include="PlayLevel0.h">
       <Filter>Level0</Filter>
     </ClInclude>
     <ClInclude Include="TitleLevel0.h">
       <Filter>Level0</Filter>
     </ClInclude>
     <ClInclude Include="Player.h" />
-    <ClInclude Include="ContentCore.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PlayLevel0.cpp">
+    <ClCompile Include="EndingLevel0.cpp">
       <Filter>Level0</Filter>
     </ClCompile>
-    <ClCompile Include="EndingLevel0.cpp">
+    <ClCompile Include="PlayLevel0.cpp">
       <Filter>Level0</Filter>
     </ClCompile>
     <ClCompile Include="TitleLevel0.cpp">
       <Filter>Level0</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="ContentCore.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="Level0">
-      <UniqueIdentifier>{e7a26ce0-8319-434d-92c4-6ee5400cd232}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
 </Project>
