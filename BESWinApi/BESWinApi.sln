@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DOC", "DOC", "{7592DFDD-A6C1-4F59-8245-18681D0BE52E}"
 	ProjectSection(SolutionItems) = preProject
-		TextFile1.txt = TextFile1.txt
+		델타타임.txt = 델타타임.txt
 		프로젝트 구성.txt = 프로젝트 구성.txt
 	EndProjectSection
 EndProject
@@ -33,7 +33,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "text", "text", "{DCDA22D7-CEF0-4FB6-BFF2-29E4C3DD6A2B}"
 	ProjectSection(SolutionItems) = preProject
 		0427수업.txt = 0427수업.txt
-		0502수업.txt = 0502수업.txt
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameEngineBase", "GameEngineBase\GameEngineBase.vcxproj", "{5383C252-B09C-4E86-B5EF-2D89B34A77A8}"
