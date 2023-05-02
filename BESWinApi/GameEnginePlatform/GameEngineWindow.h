@@ -27,6 +27,10 @@ public:
 		return Hdc;
 	}
 
+	static void WindowLoopOff()
+	{
+		IsWindowUpdate = false;
+	}
 
 protected:
 

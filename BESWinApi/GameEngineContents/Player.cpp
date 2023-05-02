@@ -1,5 +1,6 @@
 #include "Player.h"
 #include <Windows.h>
+#include <GameEngineBase/GameEngineTime.h>
 #include <GameEnginePlatform/GameEngineWindow.h>
 
 Player::Player()
@@ -19,10 +20,14 @@ void Player::Start()
 
 void Player::Update()
 {
-	// 실수익때문에 계산이 안될것이다.
-	// Player->getpos == Monster->getpos
+	// 아주 어리석은 절대로 아마 안될 계산을 하는것이다.
+	// Player->GetPos() == Monster->GetPos();
 
-	AddPos({ 1.0f, 0.0f });
+	GameEngineTime::MainTimer;
+
+	float Time = GameEngineTime::MainTimer.GetDeltaTime();
+
+	AddPos({ 100.0f, 0.0f });
 }
 
 void Player::Render()
