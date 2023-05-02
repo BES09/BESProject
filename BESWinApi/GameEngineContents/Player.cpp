@@ -19,6 +19,9 @@ void Player::Start()
 
 void Player::Update()
 {
+	// 실수익때문에 계산이 안될것이다.
+	// Player->getpos == Monster->getpos
+
 	AddPos({ 1.0f, 0.0f });
 }
 

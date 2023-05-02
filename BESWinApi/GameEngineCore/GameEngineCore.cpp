@@ -34,7 +34,12 @@ void GameEngineCore::CoreUpdate()
 		NextLevel = nullptr;
 	}
 
+	// 한프레임 동안은 절대로 기본적인 세팅의
+	// 변화가 없게 하려고 하는 설계의도가 있는것
+	// 처음에 들어갈때 호출한 애는 PlayLevel
 	CurLevel->Update();
+
+	// 나올때는 TitleLevel
 	CurLevel->ActorUpdate();
 	CurLevel->Render();
 	CurLevel->ActorRender();

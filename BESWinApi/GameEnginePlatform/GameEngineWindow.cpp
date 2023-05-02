@@ -114,17 +114,24 @@ void GameEngineWindow::MessageLoop(HINSTANCE _Inst, void(*_Start)(HINSTANCE), vo
     }
     
     MSG msg;
-    while (GetMessage(&msg, nullptr, 0, 0))
+    while (true)
     {
-        if (nullptr != _Update)
+
+        if (GetMessage(&msg, nullptr, 0, 0))
         {
-            _Update();
+            // 이게 한바퀴가 도는 것을 프레임
+            // FPS
+            // 초당 화면이 그려지는 회수
+            // 하드웨어와도 연결이 있다.
+            if (nullptr != _Update)
+            {
+                _Update();
+            }
+
+            TranslateMessage(&msg);
+            DispatchMessage(&msg);
         }
-
-        TranslateMessage(&msg);
-        DispatchMessage(&msg);
     }
-
     if (nullptr != _End)
     {
         _End();
