@@ -1,6 +1,7 @@
 #include "GameEngineCore.h"
 #include <GameEnginePlatform/GameEngineWindow.h>
 #include <GameEngineBase/GameEngineDebug.h>
+#include <GameEngineBase/GameEngineTime.h>
 #include "GameEngineLevel.h"
 
 std::string GameEngineCore::WindowTitle = "";
@@ -32,15 +33,21 @@ void GameEngineCore::CoreUpdate()
 	{
 		CurLevel = NextLevel;
 		NextLevel = nullptr;
+		GameEngineTime::MainTimer.Reset();
 	}
 
-	// 한프레임 동안은 절대로 기본적인 세팅의
-	// 변화가 없게 하려고 하는 설계의도가 있는것
-	// 처음에 들어갈때 호출한 애는 PlayLevel
-	CurLevel->Update();
+	// 업데이트를 
+	GameEngineTime::MainTimer.Update();
+	float Delta = GameEngineTime::MainTimer.GetDeltaTime();
 
-	// 나올때는 TitleLevel
-	CurLevel->ActorUpdate();
+
+	// 한프레임 동안은 절대로 기본적인 세팅의 
+	// 변화가 없게 하려고 하는 설계의도가 있는것.
+	// 이걸 호출한 애는 PlayLevel
+	CurLevel->Update(Delta);
+
+	// TitleLevel
+	CurLevel->ActorUpdate(Delta);
 	CurLevel->Render();
 	CurLevel->ActorRender();
 }

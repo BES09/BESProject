@@ -1,0 +1,20 @@
+UML 클래스를 도표화시킨것이다.
+
+1스테이지를 시작할때 TextureLoad로드
+1스테이지에 필요한것만 로드한다.
+필요없는것은 언로드해둔다.
+
+1스테이지 -> 2스테이지로 넘어갈때
+1스테이지 몬스터 맵 언로드
+
+
+// 있으면 이걸 로드하고
+GameEngineTexture* Ptr = ResourcesManager::Getinst().FindTexture("Player_Idle.Bmp");
+
+// 없으면 이걸 로드해
+if (nillptr == Ptr)
+{
+	ResourcesManager::Getinst().TextureLoad("Player_Idle.Bmp");
+}
+
+filesystem
