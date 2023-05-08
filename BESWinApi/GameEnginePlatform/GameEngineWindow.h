@@ -1,6 +1,7 @@
 #pragma once
 #include <Windows.h>
 #include <string>
+#include "GameEngineWindowTexture.h"
 
 // 설명 :
 class GameEngineWindow
@@ -27,6 +28,20 @@ public:
 		return Hdc;
 	}
 
+	float4 GetScale()
+	{
+		return Scale;
+	}
+
+	GameEngineWindowTexture* GetBackBuffer()
+	{
+		return BackBuffer;
+	}
+
+	// 위치나 크기는 float4를 사용한다.
+	void SetPosAndScale(const float4& _Pos, const float4& _Scale);
+
+
 	static void WindowLoopOff()
 	{
 		IsWindowUpdate = false;
@@ -39,7 +54,15 @@ private:
 	static HINSTANCE Instance;
 	std::string Title = "";
 	HWND hWnd = nullptr;
+
+	float4 Scale;
+	GameEngineWindowTexture* BackBuffer = nullptr;
+
+
+	// 2차원 배열 형식의 색깔들의 집합이 존재하고
+	// 거기에 그림을 그리거나 수정할수 있는 권한을 HDC
 	HDC Hdc = nullptr;
+	
 
 	static LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 	void InitInstance();

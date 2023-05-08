@@ -26,12 +26,14 @@ public:
 
 
 	template<typename ActorType>
-	void CreateActor(int _Order = 0)
+	ActorType* CreateActor(int _Order = 0)
 	{
 		std::list<GameEngineActor*>& GroupList = AllActors[_Order];
 		GameEngineActor* NewActor = new ActorType();
 		ActorInit(NewActor);
 		GroupList.push_back(NewActor);
+
+		return dynamic_cast<ActorType*>(NewActor);
 	}
 
 

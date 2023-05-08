@@ -46,7 +46,7 @@ public:
 protected:
 
 private:
-	float4 Pos;
-	float4 Scale; // <= 크기는 액터한테 필요 없습니다.
+	float4 Pos = float4::ZERO;
+	float4 Scale = float4::ZERO; // <= 크기는 액터한테 필요 없습니다.
 };
 

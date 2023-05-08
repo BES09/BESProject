@@ -3,7 +3,7 @@
 #include <GameEngineBase/GameEngineTime.h>
 #include <GameEngineBase/GameEnginePath.h>
 #include <GameEnginePlatform/GameEngineWindow.h>
-#include <GameEngineCore/GameEngineTexture.h>
+#include <GameEnginePlatform/GameEngineWindowTexture.h>
 #include <GameEngineCore/ResourcesManager.h>
 
 Player::Player()
@@ -17,15 +17,27 @@ Player::~Player()
 
 void Player::Start()
 {
-	if (false == ResourcesManager::GetInst().IsLoadTexture("Player_Idle.Bmp"))
+	if (false == ResourcesManager::GetInst().IsLoadTexture("Test.Bmp"))
 	{
 		// 무조건 자동으로 현재 실행중인 위치가 된다.
+		// 경로
+		// 시작위치 
+		// 
+		// 시작위치 
+		// 도착위치 
 		GameEnginePath FilePath;
-
+		// 시작위치 
 		FilePath.GetCurrentPath();
+		// 시작위치 
 
-		ResourcesManager::GetInst().TextureLoad("Player_Idle.Bmp");
+		// ContentsResources
+
+		FilePath.MoveParentToExistsChild("ContentsResources");
+		FilePath.MoveChild("ContentsResources\\Texture\\Player\\Test.bmp");
+
+		ResourcesManager::GetInst().TextureLoad(FilePath.GetStringPath());
 	}
+
 
 	SetPos({ 200, 200 });
 	SetScale({ 100, 100 });
@@ -45,16 +57,12 @@ void Player::Render()
 	//SetPos({ 200, 200 });
 	//SetScale({ 100, 100 });
 
-	HDC WindowDC = GameEngineWindow::MainWindow.GetHDC();
+	// 그렸을때 화면에 나오는건 언제나 window에 있는 BackBuffer에다가 그려야만 한다.
+	// 모든건 다 Texture고 
+	GameEngineWindowTexture* BackBuffer = GameEngineWindow::MainWindow.GetBackBuffer();
+	GameEngineWindowTexture* FindTexture = ResourcesManager::GetInst().FindTexture("Test.Bmp");
+	BackBuffer->BitCopy(FindTexture, GetPos(), GetScale());
 
-	Rectangle(WindowDC,
-		GetPos().iX() - GetScale().ihX(),
-		GetPos().iY() - GetScale().ihY(),
-		GetPos().iX() + GetScale().ihX(),
-		GetPos().iY() + GetScale().ihY()
-	);
-
-	// 그려야죠?
 }
 
 void Player::Release()

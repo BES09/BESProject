@@ -10,8 +10,13 @@
     <ClInclude Include="TitleLevel0.h">
       <Filter>Level0</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h" />
     <ClInclude Include="ContentCore.h" />
+    <ClInclude Include="Player.h">
+      <Filter>Global</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGround.h">
+      <Filter>Global</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PlayLevel0.cpp">
@@ -23,12 +28,20 @@
     <ClCompile Include="TitleLevel0.cpp">
       <Filter>Level0</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp" />
     <ClCompile Include="ContentCore.cpp" />
+    <ClCompile Include="Player.cpp">
+      <Filter>Global</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>Global</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level0">
       <UniqueIdentifier>{e7a26ce0-8319-434d-92c4-6ee5400cd232}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Global">
+      <UniqueIdentifier>{2cf6420d-124d-4e04-807a-6b4b6ca15504}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
