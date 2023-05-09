@@ -33,12 +33,12 @@ void Player::Start()
 		// ContentsResources
 
 		FilePath.MoveParentToExistsChild("ContentsResources");
-		FilePath.MoveChild("ContentsResources\\Texture\\Player\\Test.bmp");
+		FilePath.MoveChild("ContentsResources\\Texture\\Player\\Test1.bmp");
 
 		ResourcesManager::GetInst().TextureLoad(FilePath.GetStringPath());
 	}
 
-	CreateRenderer("Test.Bmp");
+	CreateRenderer("Test1.Bmp");
 
 	SetPos({ 200, 200 });
 	SetScale({ 100, 100 });
@@ -61,7 +61,7 @@ void Player::Render()
 	// 그렸을때 화면에 나오는건 언제나 window에 있는 BackBuffer에다가 그려야만 한다.
 	// 모든건 다 Texture고 
 	GameEngineWindowTexture* BackBuffer = GameEngineWindow::MainWindow.GetBackBuffer();
-	GameEngineWindowTexture* FindTexture = ResourcesManager::GetInst().FindTexture("Test.Bmp");
+	GameEngineWindowTexture* FindTexture = ResourcesManager::GetInst().FindTexture("Test1.Bmp");
 	BackBuffer->TransCopy(FindTexture, GetPos(), { 100, 100 }, { 0,0 }, FindTexture->GetScale());
 
 }

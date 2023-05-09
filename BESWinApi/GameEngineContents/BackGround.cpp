@@ -18,7 +18,9 @@ void BackGround::Start()
 }
 
 
-void BackGround::Update(float _Delta) {
+void BackGround::Update(float _Delta)
+{
+
 }
 void BackGround::Render()
 {
