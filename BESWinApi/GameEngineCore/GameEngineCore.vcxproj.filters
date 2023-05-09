@@ -14,6 +14,12 @@
     <ClInclude Include="ResourcesManager.h">
       <Filter>Resources</Filter>
     </ClInclude>
+    <ClInclude Include="GameEngineCamera.h">
+      <Filter>Object\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineRenderer.h">
+      <Filter>Object\Rendering</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameEngineCore.cpp" />
@@ -29,6 +35,12 @@
     <ClCompile Include="ResourcesManager.cpp">
       <Filter>Resources</Filter>
     </ClCompile>
+    <ClCompile Include="GameEngineCamera.cpp">
+      <Filter>Object\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineRenderer.cpp">
+      <Filter>Object\Rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Object">
@@ -36,6 +48,9 @@
     </Filter>
     <Filter Include="Resources">
       <UniqueIdentifier>{156b1049-5292-4ade-a795-df2f28d6fb15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Rendering">
+      <UniqueIdentifier>{12d45175-2c01-4c41-a89d-6834b048102c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

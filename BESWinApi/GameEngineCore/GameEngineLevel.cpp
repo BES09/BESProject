@@ -1,12 +1,25 @@
 #include "GameEngineLevel.h"
+#include "GameEngineCamera.h"
 
 GameEngineLevel::GameEngineLevel()
 {
-
+	MainCamera = new GameEngineCamera();
+	UICamera = new GameEngineCamera();
 }
 
 GameEngineLevel::~GameEngineLevel()
 {
+	if (nullptr != MainCamera)
+	{
+		delete MainCamera;
+		MainCamera = nullptr;
+	}
+
+	if (nullptr != UICamera)
+	{
+		delete UICamera;
+		UICamera = nullptr;
+	}
 
 	for (const std::pair<int, std::list<GameEngineActor*>>& _Pair : AllActors)
 	{
@@ -26,6 +39,7 @@ GameEngineLevel::~GameEngineLevel()
 
 void GameEngineLevel::ActorInit(GameEngineActor* _Actor)
 {
+	_Actor->Level = this;
 	_Actor->Start();
 }
 

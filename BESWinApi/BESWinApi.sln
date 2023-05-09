@@ -36,6 +36,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "text", "text", "{DCDA22D7-C
 		0427수업.txt = 0427수업.txt
 		0503수업.txt = 0503수업.txt
 		0504.txt = 0504.txt
+		0509.txt = 0509.txt
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameEngineBase", "GameEngineBase\GameEngineBase.vcxproj", "{5383C252-B09C-4E86-B5EF-2D89B34A77A8}"

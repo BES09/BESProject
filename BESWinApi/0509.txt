@@ -1,0 +1,11 @@
+WindowBuffer
+BackBuffer에 그린 그림을 WindowBuffer에 너어주면
+더블버퍼링으로 깜빡이는 현상을 제거한다.
+
+BackBuffer
+BackBuffer에 모든그림을 그리고
+
+이미지 편집할때
+크기를 줄이거나 늘릴때는 최단입점을 선택하고 실행한다.
+
+색을 입힐떼 안티 라이언스는 끄고 진행한다.

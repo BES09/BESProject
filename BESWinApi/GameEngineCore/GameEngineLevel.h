@@ -9,8 +9,12 @@
 // 타이틀 장면
 // 플레이 장면
 // 엔딩 장면
+
+// 전방선언
+class GameEngineCamera;
 class GameEngineLevel : public GameEngineObject
 {
+	friend class GameEngineActor;
 	friend class GameEngineCore;
 
 public:
@@ -40,7 +44,10 @@ public:
 protected:
 
 private:
-
+	// 가평으로하면 해더가 필요하다
+	// 포안터는 전방선언을 해줌면된다
+	GameEngineCamera* MainCamera;
+	GameEngineCamera* UICamera;
 	// 맵
 	// 플레이어
 	// 몬스터
