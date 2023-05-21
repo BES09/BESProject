@@ -9,8 +9,6 @@
 // 타이틀 장면
 // 플레이 장면
 // 엔딩 장면
-
-// 전방선언
 class GameEngineCamera;
 class GameEngineLevel : public GameEngineObject
 {
@@ -29,25 +27,37 @@ public:
 	GameEngineLevel& operator=(GameEngineLevel&& _Other) noexcept = delete;
 
 
+	template<typename ActorType, typename EnumType>
+	ActorType* CreateActor(EnumType _Order)
+	{
+		return CreateActor<ActorType>(static_cast<int>(_Order));
+	}
+
+
 	template<typename ActorType>
 	ActorType* CreateActor(int _Order = 0)
 	{
 		std::list<GameEngineActor*>& GroupList = AllActors[_Order];
 		GameEngineActor* NewActor = new ActorType();
-		ActorInit(NewActor);
+		ActorInit(NewActor, _Order);
 		GroupList.push_back(NewActor);
 
 		return dynamic_cast<ActorType*>(NewActor);
 	}
 
+	GameEngineCamera* GetMainCamera()
+	{
+		return MainCamera;
+	}
 
 protected:
+	virtual void LevelStart(GameEngineLevel* _PrevLevel) {}
+	virtual void LevelEnd(GameEngineLevel* _NextLevel) {}
 
 private:
-	// 가평으로하면 해더가 필요하다
-	// 포안터는 전방선언을 해줌면된다
 	GameEngineCamera* MainCamera;
 	GameEngineCamera* UICamera;
+
 	// 맵
 	// 플레이어
 	// 몬스터
@@ -58,9 +68,15 @@ private:
 
 	std::map<int, std::list<GameEngineActor*>> AllActors;
 
-	void ActorInit(GameEngineActor* _Actor);
+	void ActorInit(GameEngineActor* _Actor, int _Order);
+
+	void ActorLevelEnd();
+	void ActorLevelStart();
 
 	void ActorUpdate(float _Delta);
-	void ActorRender();
+	void ActorRender(float _Delta);
+	void ActorRelease();
 };
+
+
 

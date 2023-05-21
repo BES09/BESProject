@@ -13,6 +13,7 @@
 // 생성 객체를 생성하는 방법을 
 // 패턴 소양 정도로만 알고있으면 됩니다.
 // 이 프로그램에서 이 객체가 1개만 있었으면 좋겠다.
+class GameEngineSprite;
 class GameEngineWindowTexture;
 class ResourcesManager
 {
@@ -57,17 +58,42 @@ public:
 	// 파일명이 곧 찾기위한 이름이 된다.
 	GameEngineWindowTexture* TextureLoad(const std::string& _Path)
 	{
-		// _Path 파일명
 		GameEnginePath LoadPath = _Path;
 		return TextureLoad(LoadPath.GetFileName(), _Path);
-		// TextureLoad()
 	}
 
 	GameEngineWindowTexture* TextureLoad(const std::string& _Name, const std::string& _Path);
 
 	GameEngineWindowTexture* FindTexture(const std::string& _Name);
 
+	GameEngineSprite* FindSprite(const std::string& _Name);
+
+
+	GameEngineSprite* CreateSpriteFolder(const std::string& _Path)
+	{
+		GameEnginePath FolderPath = _Path;
+
+		return CreateSpriteFolder(FolderPath.GetFileName(), _Path);
+	}
+
+	GameEngineSprite* CreateSpriteFolder(const std::string& _SpriteName, const std::string& _Path);
+
+	// 합쳐져 있는 애를 자르는 기능부터 만들겠습니다.
+	// _TexturePath 경로에 존재하는 텍스처를 로드하고 
+	// _SpriteName 이름의 스프라이트로 만듭니다.
+	GameEngineSprite* CreateSpriteSheet(const std::string& _TexturePath, int _XCount, int _YCount)
+	{
+		GameEnginePath Path = _TexturePath;
+
+		return CreateSpriteSheet(Path.GetFileName(), _TexturePath, _XCount, _YCount);
+	}
+
+	GameEngineSprite* CreateSpriteSheet(const std::string& _SpriteName, const std::string& _TexturePath, int _XCount, int _YCount);
+
 	bool IsLoadTexture(const std::string& _Image);
+
+	void TextureFileLoad(const std::string& _FileName, const std::string& _Path);
+	void SpriteFileLoad(const std::string& _FileName, const std::string& _Path, int _XCount, int _YCount);
 
 
 protected:
@@ -82,7 +108,8 @@ private:
 	ResourcesManager();
 	~ResourcesManager();
 
-						// 동적할당을 이용하여 필요할때 필요한만큼
 	std::map<std::string, GameEngineWindowTexture*> AllTexture;
 
+	std::map<std::string, GameEngineSprite*> AllSprite;
 };
+

@@ -3,6 +3,9 @@
 #include <GameEngineBase/GameEngineDebug.h>
 #include "GameEngineWindow.h"
 
+#pragma comment(lib, "msimg32.lib")
+
+
 GameEngineWindowTexture::GameEngineWindowTexture()
 {
 }
@@ -90,6 +93,8 @@ float4 GameEngineWindowTexture::GetScale()
 	return { static_cast<float>(Info.bmWidth), static_cast<float>(Info.bmHeight) };
 }
 
+
+
 void GameEngineWindowTexture::BitCopy(GameEngineWindowTexture* _CopyTexture, const float4& _Pos)
 {
 	BitCopy(_CopyTexture, _Pos, _CopyTexture->GetScale());
@@ -116,7 +121,6 @@ void GameEngineWindowTexture::BitCopy(
 
 }
 
-
 void GameEngineWindowTexture::TransCopy(GameEngineWindowTexture* _CopyTexture, const float4& _Pos, const float4& _Scale, const float4& _OtherPos, const float4& _OtherScale, int _TransColor/* = RGB(255, 0, 255)*/)
 {
 	HDC CopyImageDC = _CopyTexture->GetImageDC();
@@ -131,8 +135,9 @@ void GameEngineWindowTexture::TransCopy(GameEngineWindowTexture* _CopyTexture, c
 		CopyImageDC,
 		_OtherPos.iX(), // 카피하려는 이미지의 왼쪽위 x
 		_OtherPos.iY(), // 카피하려는 이미지의 왼쪽위 y
-		_OtherScale.iX(), // 카피하려는 이미지의 
-		_OtherScale.iY(), // 카피하려는 이미지의 
-		_TransColor  // 화면에 출력하고 싶지않은 색상
+		_OtherScale.iX(), // 그부분부터 사이즈  x
+		_OtherScale.iY(), // 그부분부터 사이즈  y
+		_TransColor
 	);
+
 }

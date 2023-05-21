@@ -17,6 +17,18 @@
     <ClInclude Include="BackGround.h">
       <Filter>Global</Filter>
     </ClInclude>
+    <ClInclude Include="ContentsEnum.h">
+      <Filter>Global</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Global</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayActor.h">
+      <Filter>Level0</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Global</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PlayLevel0.cpp">
@@ -33,6 +45,18 @@
       <Filter>Global</Filter>
     </ClCompile>
     <ClCompile Include="BackGround.cpp">
+      <Filter>Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Player_State.cpp">
+      <Filter>Global</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayActor.cpp">
+      <Filter>Level0</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
       <Filter>Global</Filter>
     </ClCompile>
   </ItemGroup>

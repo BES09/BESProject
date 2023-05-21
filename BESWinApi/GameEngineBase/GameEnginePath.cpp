@@ -3,6 +3,7 @@
 
 GameEnginePath::GameEnginePath()
 {
+	SetCurrentPath();
 }
 
 GameEnginePath::GameEnginePath(const std::string& _path)
@@ -20,7 +21,7 @@ std::string GameEnginePath::GetFileName()
 	return Path.filename().string();
 }
 
-void GameEnginePath::GetCurrentPath()
+void GameEnginePath::SetCurrentPath()
 {
 	Path = std::filesystem::current_path();
 }
@@ -70,4 +71,48 @@ void GameEnginePath::MoveChild(const std::string& _ChildPath)
 
 	Path = CheckPath;
 	// Path.append(_ChildPath);
+}
+
+std::string GameEnginePath::PlusFilePath(const std::string& _ChildPath)
+{
+	std::filesystem::path CheckPath = Path;
+
+	CheckPath.append(_ChildPath);
+
+	if (false == std::filesystem::exists(CheckPath))
+	{
+		MsgBoxAssert("존재하지 않는 경로로 이동하려고 했습니다." + CheckPath.string());
+	}
+
+	return CheckPath.string();
+}
+
+bool GameEnginePath::IsDirectory()
+{
+	return std::filesystem::is_directory(Path);
+}
+
+std::string GameEnginePath::GetParentString(const std::string& _ChildPath)
+{
+	int CountBeforeBackSlash = 0;
+
+	while (true)
+	{
+		if ('\\' == _ChildPath[CountBeforeBackSlash])
+		{
+			break;
+		}
+
+		++CountBeforeBackSlash;
+	}
+
+	std::string ChildPath = "";
+	ChildPath.reserve(CountBeforeBackSlash);
+
+	for (size_t i = 0; i < CountBeforeBackSlash; i++)
+	{
+		ChildPath.push_back(_ChildPath[i]);
+	}
+
+	return ChildPath;
 }
