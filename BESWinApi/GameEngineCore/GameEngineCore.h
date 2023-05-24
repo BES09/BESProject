@@ -6,6 +6,7 @@
 #include <map>
 #include "GameEngineObject.h"
 
+
 class CoreProcess : public GameEngineObject
 {
 
@@ -89,6 +90,7 @@ private:
 	static GameEngineLevel* CurLevel;
 	static GameEngineLevel* NextLevel;
 	static std::map<std::string, GameEngineLevel*> AllLevel;
+
 
 	// constrcuter destructer
 	GameEngineCore();

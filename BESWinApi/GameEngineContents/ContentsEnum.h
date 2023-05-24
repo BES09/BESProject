@@ -12,3 +12,13 @@ enum class RenderOrder
 	Play,
 	PlayUI,
 };
+
+
+// ÇïÅ×ÀÌÄ¿ 
+enum class CollisionOrder
+{
+	Map,
+	Potal,
+	PlayerBody,
+	MonsterBody,
+};

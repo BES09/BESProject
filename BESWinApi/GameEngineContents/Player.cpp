@@ -7,10 +7,13 @@
 #include <GameEnginePlatform/GameEngineWindowTexture.h>
 #include <GameEngineCore/ResourcesManager.h>
 #include <GameEngineCore/GameEngineRenderer.h>
+#include <GameEngineCore/GameEngineCollision.h>
 #include <GameEngineCore/GameEngineLevel.h>
 #include <GameEngineCore/GameEngineCamera.h>
+#include <GameEngineCore/GameEngineCore.h>
 #include "Bullet.h"
 #include "Monster.h"
+#include "PlayUIManager.h"
 #include <GameEnginePlatform/GameEngineInput.h>
 
 Player* Player::MainPlayer = nullptr;
@@ -50,16 +53,16 @@ void Player::Start()
 	}
 
 	{
-		MainRenderer = CreateRenderer(RenderOrder::Play);
-		MainRenderer->SetRenderScale({ 300, 300 });
-		MainRenderer->SetSprite("Right_RedPlayer.bmp");
+		MainRenderer = CreateRenderer(200);
+
+		MainRenderer->CreateAnimation("Test", "Right_RedPlayer.bmp", 8, 2, 0.1f, true);
 
 
-		MainRenderer->CreateAnimation("Left_Idle", "Left_RedPlayer.bmp", 15, 18, 0.1f, true);
-		MainRenderer->CreateAnimation("Right_Idle", "Right_RedPlayer.bmp", 15, 18, 0.1f, true);
+		MainRenderer->CreateAnimation("Left_Idle", "Left_RedPlayer.bmp", 3, 3, 0.1f, true);
+		MainRenderer->CreateAnimation("Right_Idle", "Right_RedPlayer.bmp", 1, 1, 0.1f, true);
 
-		MainRenderer->CreateAnimation("Left_Run", "Left_RedPlayer.bmp", 20, 24, 0.1f, true);
-		MainRenderer->CreateAnimation("Right_Run", "Right_RedPlayer.bmp", 20, 24, 0.1f, true);
+		MainRenderer->CreateAnimation("Left_Run", "Left_RedPlayer.bmp", 20, 22, 0.1f, true);
+		MainRenderer->CreateAnimation("Right_Run", "Right_RedPlayer.bmp", 22, 24, 0.1f, true);
 
 		MainRenderer->ChangeAnimation("Left_Idle");
 		MainRenderer->SetRenderScaleToTexture();
@@ -72,6 +75,13 @@ void Player::Start()
 		Ptr->SetTexture("HPBar.bmp");
 	}
 
+	{
+		BodyCollsion = CreateCollision(CollisionOrder::PlayerBody);
+		BodyCollsion->SetCollisionScale({ 100, 100 });
+		BodyCollsion->SetCollisionType(CollisionType::CirCle);
+	}
+
+
 	// State = PlayerState::Idle;
 
 	ChanageState(PlayerState::Idle);
@@ -80,15 +90,39 @@ void Player::Start()
 
 void Player::Update(float _Delta)
 {
+
+	std::vector<GameEngineCollision*> _Col;
+	if (true == BodyCollsion->Collision(CollisionOrder::MonsterBody, _Col
+		, CollisionType::CirCle // 나를 사각형으로 봐줘
+		, CollisionType::CirCle // 상대도 사각형으로 봐줘
+	))
+	{
+		for (size_t i = 0; i < _Col.size(); i++)
+		{
+			GameEngineCollision* Collison = _Col[i];
+
+			GameEngineActor* Actor = Collison->GetActor();
+
+			Actor->Death();
+		}
+		// 나는 몬스터랑 충돌한거야.
+	}
+
 	if (true == GameEngineInput::IsDown('L'))
 	{
 		Monster::AllMonsterDeath();
+	}
+
+	if (true == GameEngineInput::IsDown('U'))
+	{
+		GameEngineLevel::CollisionDebugRenderSwitch();
 	}
 
 	if (true == GameEngineInput::IsDown('Y'))
 	{
 		GravityOff();
 	}
+
 
 	StateUpdate(_Delta);
 

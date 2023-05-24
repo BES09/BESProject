@@ -17,6 +17,12 @@ BackGround::~BackGround()
 void BackGround::Start()
 {
 	SetPos({ 640, 360 });
+	Renderer = CreateRenderer(RenderOrder::BackGround);
+
+	DebugRenderer = CreateRenderer(RenderOrder::BackGround);
+
+	Renderer->On();
+	DebugRenderer->Off();
 }
 
 
@@ -53,41 +59,48 @@ void BackGround::Release()
 }
 
 
-void BackGround::Init(const std::string& _FileName)
+void BackGround::Init(const std::string& _FileName, const std::string& _DebugFileName)
 {
 	FileName = _FileName;
 
 	if (false == ResourcesManager::GetInst().IsLoadTexture(_FileName))
 	{
-		// 무조건 자동으로 현재 실행중인 위치가 된다.
-		// 경로
-		// 시작위치 
-		// 
-		// 시작위치
-		// 도착위치 
-		GameEnginePath FilePath;
-		// 시작위치
-		FilePath.SetCurrentPath();
-		// 시작위치 
 
-		// ContentsResources
+		GameEnginePath FilePath;
+
+		FilePath.SetCurrentPath();
+
+
+
 
 		FilePath.MoveParentToExistsChild("ContentsResources");
 		FilePath.MoveChild("ContentsResources\\Texture\\Map\\" + _FileName);
 
 		GameEngineWindowTexture* Text = ResourcesManager::GetInst().TextureLoad(FilePath.GetStringPath());
-
-		// 208
-
-		float4 Scale = Text->GetScale();
-
-		Scale.X *= 5.0f;
-		Scale.Y *= 5.0f;
-
-		// SetScale(Scale * 5.0f);
-
-		GameEngineRenderer* Render = CreateRenderer(_FileName, RenderOrder::BackGround);
-		Render->SetRenderScale(Scale);
 	}
 
+	GameEngineWindowTexture* Texture = ResourcesManager::GetInst().FindTexture(_FileName);
+	float4 Scale = Texture->GetScale();
+	Renderer->SetTexture(_FileName);
+	Renderer->SetRenderScale(Scale);
+	DebugRenderer->SetTexture(_DebugFileName);
+	DebugRenderer->SetRenderScale(Scale);
+	SetPos({ Scale.hX(), Scale.hY() });
+	
+	
+}
+
+void BackGround::SwitchRender()
+{
+	SwitchRenderValue = !SwitchRenderValue;
+
+	if (SwitchRenderValue)
+	{
+		Renderer->On();
+		DebugRenderer->Off();
+	}
+	else {
+		Renderer->Off();
+		DebugRenderer->On();
+	}
 }

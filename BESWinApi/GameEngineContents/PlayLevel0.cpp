@@ -22,6 +22,17 @@ PlayLevel0::~PlayLevel0()
 void PlayLevel0::Start()
 {
 
+	if (false == ResourcesManager::GetInst().IsLoadTexture("1st part test.Bmp"))
+	{
+		GameEnginePath FilePath;
+		FilePath.SetCurrentPath();
+		FilePath.MoveParentToExistsChild("ContentsResources");
+
+		GameEnginePath FolderPath = FilePath;
+
+		FilePath.MoveChild("ContentsResources\\Texture\\Map\\");
+		ResourcesManager::GetInst().TextureLoad(FilePath.PlusFilePath("1st part test2.bmp"));
+	}
 
 
 	// ResourcesManager::GetInst().TextureLoad("AAA.Png", 경로);
@@ -35,9 +46,11 @@ void PlayLevel0::Start()
 
 	// 자기 임의대로 만들겠다는 것이고 xxxxx
 	// Player* NewPlayer = new Player();
+	BackGroundPtr = CreateActor<BackGround>();
+	BackGroundPtr->Init("1st part test.Bmp", "1st part test2.bmp");
 
-	BackGround* Back = CreateActor<BackGround>();
-	Back->Init("1st part test.Bmp");
+	LevelPlayer = CreateActor<Player>();
+	LevelPlayer->SetGroundTexture("1st part test2.bmp");
 
 	LevelPlayer = CreateActor<Player>();
 }
@@ -48,6 +61,11 @@ void PlayLevel0::Update(float _Delta)
 	if (true == GameEngineInput::IsDown('O'))
 	{
 		GameEngineCore::ChangeLevel("TitleLevel0");
+	}
+
+	if (true == GameEngineInput::IsDown('J'))
+	{
+		BackGroundPtr->SwitchRender();
 	}
 
 	if (1.0f <= GetLiveTime())
@@ -71,12 +89,13 @@ void PlayLevel0::LevelStart(GameEngineLevel* _PrevLevel)
 	{
 		MsgBoxAssert("플레이어를 세팅해주지 않았습니다");
 	}
+	LevelPlayer->SetGroundTexture("1st part test2.bmp");
 
-	float4 WinScale = GameEngineWindow::MainWindow.GetScale();
+	//float4 WinScale = GameEngineWindow::MainWindow.GetScale();
 	//LevelPlayer->SetPos(WinScale.Half());
 	// 0 0
 	// x y
-	GetMainCamera()->SetPos(LevelPlayer->GetPos() - WinScale.Half());
+	//GetMainCamera()->SetPos(LevelPlayer->GetPos() - WinScale.Half());
 
 }
 

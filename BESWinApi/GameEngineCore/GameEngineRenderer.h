@@ -1,5 +1,5 @@
 #pragma once
-#include "GameEngineObject.h"
+#include "GameEngineActorSubObject.h"
 #include <GameEngineBase/GameEngineMath.h>
 #include <string>
 #include <map>
@@ -9,7 +9,7 @@
 class GameEngineSprite;
 class GameEngineActor;
 class GameEngineWindowTexture;
-class GameEngineRenderer : public GameEngineObject
+class GameEngineRenderer : public GameEngineActorSubObject
 {
 	friend class GameEngineCamera;
 	friend class GameEngineActor;
@@ -59,12 +59,16 @@ public:
 
 	void SetRenderScaleToTexture();
 
-	bool IsDeath() override;
+
+
+	void SetOrder(int _Order) override;
 
 protected:
+	void Start() override;
 
 private:
-	GameEngineActor* Master = nullptr;
+
+	GameEngineCamera* Camera = nullptr;
 	GameEngineWindowTexture* Texture = nullptr;
 	GameEngineSprite* Sprite = nullptr;
 
@@ -78,7 +82,7 @@ private:
 	float4 CopyPos;
 	float4 CopyScale;
 
-	void Render(class GameEngineCamera* _Camera, float _DeltaTime);
+	void Render(float _DeltaTime);
 
 private:
 	class Animation
@@ -89,6 +93,7 @@ private:
 		size_t StartFrame = -1;
 		size_t EndFrame = -1;
 		float CurInter = 0.0f;
+		std::vector<size_t> Frames;
 		std::vector<float> Inters;
 		bool Loop = true;
 	};
@@ -113,6 +118,9 @@ public:
 		bool _Loop = true);
 
 	void ChangeAnimation(const std::string& _AniamtionName, bool _ForceChange = false);
+
+	void MainCameraSetting();
+	void UICameraSetting();
 
 
 	std::map<std::string, Animation> AllAnimation;

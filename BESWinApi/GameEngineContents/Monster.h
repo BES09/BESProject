@@ -13,7 +13,7 @@ public:
 public:
 	// constrcuter destructer
 	Monster();
-	~Monster();
+	~Monster(); 
 
 	// delete Function
 	Monster(const Monster& _Other) = delete;

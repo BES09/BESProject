@@ -196,5 +196,10 @@ public:
 		return sqrtf(Value);
 	}
 
+	float Max2D()
+	{
+		return X > Y ? X : Y;
+	}
+
 };
 
