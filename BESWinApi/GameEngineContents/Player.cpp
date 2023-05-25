@@ -61,7 +61,7 @@ void Player::Start()
 		MainRenderer->CreateAnimation("Left_Idle", "Left_RedPlayer.bmp", 3, 3, 0.1f, true);
 		MainRenderer->CreateAnimation("Right_Idle", "Right_RedPlayer.bmp", 1, 1, 0.1f, true);
 
-		MainRenderer->CreateAnimation("Left_Run", "Left_RedPlayer.bmp", 20, 22, 0.1f, true);
+		MainRenderer->CreateAnimation("Left_Run", "Left_RedPlayer.bmp", 22, 20, 0.1f, true);
 		MainRenderer->CreateAnimation("Right_Run", "Right_RedPlayer.bmp", 22, 24, 0.1f, true);
 
 		MainRenderer->ChangeAnimation("Left_Idle");

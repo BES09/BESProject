@@ -108,12 +108,12 @@ void Player::RunUpdate(float _Delta)
 
 	if (true == GameEngineInput::IsPress('W'))
 	{
-		CheckPos = { 0.0f, -100.0f };
+
 		MovePos = { 0.0f, -Speed * _Delta };
 	}
 	if (true == GameEngineInput::IsPress('S'))
 	{
-		CheckPos = { 0.0f, -100.0f };
+
 		MovePos = { 0.0f, Speed * _Delta };
 	}
 
